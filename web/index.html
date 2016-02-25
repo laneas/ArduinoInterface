@@ -11,10 +11,17 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Welcome to the one and only Web to Arduino Interface!</h1>
+        <h2>Welcome to the one and only Web to Arduino Interface!</h2>
         
         <h3>To get started, lets begin by creating a board.</h3>
         <h3>Why don't we get started by naming your board and proving a port</h3>
-        
+        <form name="Board Input Form" action="workspace.jsp">
+            Enter the name of your Board:
+            <input type="text" name="name" />
+            
+            Enter your Port:
+            <input type="text" name="port" />
+            <input type="submit" value="OK" />
+        </form>
     </body>
 </html>
