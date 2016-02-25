@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Workspace</title>
     </head>
     <body>
+        <jsp:useBean id="nameBean" scope="session" class="Handlers.BoardHandler" />
+        <jsp:useBean id="portBean" scope="session" class="Handlers.BoardHandler" />
+        <jsp:setProperty name="nameBean" property="name" />
+        <jsp:setProperty name="portBean" property="port" />
         <h1>Welcome to your Workspace!</h1>
+        
+        <h4>Board: <jsp:getProperty name="nameBean" property="name" /> </h4>
+        <h4>Port: <jsp:getProperty name="portBean" property="port" /> </h4>
     </body>
 </html>

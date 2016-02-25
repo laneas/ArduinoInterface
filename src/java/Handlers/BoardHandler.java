@@ -11,5 +11,32 @@ package Handlers;
  */
 public class BoardHandler
 {
+    private String name;
+    private String port;
     
+    public BoardHandler()
+    {
+        name = "default";
+        port = "default";
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getPort()
+    {
+        return port;
+    }
+
+    public void setPort(String port)
+    {
+        this.port = port;
+    }
 }
