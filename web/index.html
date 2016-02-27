@@ -9,19 +9,26 @@ and open the template in the editor.
         <title>Arduino Web Interface</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="index.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <h2>Welcome to the one and only Web to Arduino Interface!</h2>
+        <img id="logo" src="res//Logo.png" alt="logo" width="150" height="200"/>
+        <h2>Welcome to the one and only Web to Arduino Interface!
+            <br></br>
+            Let's start by giving your board a name and a port:
+        </h2>
         
-        <h3>To get started, lets begin by creating a board.</h3>
-        <h3>Why don't we get started by naming your board and proving a port</h3>
         <form name="Board Input Form" action="workspace.jsp">
-            Enter the name of your Board:
-            <input type="text" name="name" />
-            
-            Enter your Port:
-            <input type="text" name="port" />
+            <fieldset>
+            <legend>Start Here:</legend>
+            <label>Board Name:</label>
+            <input type="text" name="name" required="required"/>
+            <br></br>
+            <label>Port:</label>
+            <input type="text" name="port" required="required"/>
             <input type="submit" value="OK" />
+            </fieldset>
         </form>
+        
     </body>
 </html>
