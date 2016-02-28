@@ -31,6 +31,16 @@
                 var data = ev.dataTransfer.getData("text");
                 ev.target.appendChild(document.getElementById(data));
             }
+            
+            function dropcopy(ev)
+            {
+                ev.preventDefault();
+                var data=ev.dataTransfer.getData("Text");
+                var copyimg = document.createElement("img");
+                var original = document.getElementById(data);
+                copyimg.src = original.src;
+                ev.target.appendChild(copyimg);
+            }
         </script>
     </head>
     <body>
@@ -56,7 +66,7 @@
                          width="200" height="150" 
                          alt="Ultrasonic Sensor" 
                          title="Ultrasonic Sensor"
-                         draggable="true"0
+                         draggable="true"
                          ondragstart="drag(event)"/></td>
                 <td><img src="res/Servo.png"
                          id="servo"
@@ -75,7 +85,7 @@
             </tr>
         </table>
         
-        <div id="workspace" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="workspace" ondrop="dropcopy(event)" ondragover="allowDrop(event)"></div>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>
