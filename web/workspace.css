@@ -4,6 +4,14 @@ body
     background-color: #00979C
 }
 
+h2
+{
+    text-align: center;
+    color: #00979C;
+    border: 2px solid #000000;
+    background-color: #FFFFFF;
+}
+
 #logo
 {
     border: 1px solid #FFFFFF;
@@ -14,12 +22,14 @@ body
     background-color: #9c4e00;
     border: 5px solid #9c0000;
     cursor: move;
+    margin-bottom: 10px;
 }
 
-h2
+#workspace 
 {
-    text-align: center;
-    color: #00979C;
-    border: 2px solid #000000;
-    background-color: #FFFFFF;
+    width: 100%;
+    height:400px;
+    padding:10px;
+    border:5px solid #9C0000;
+    background-color: #9C4E00;
 }
