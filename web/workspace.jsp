@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Workspace</title>
-        <link href="index.css" type="text/css" rel="stylesheet" />
+        <link href="workspace.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>

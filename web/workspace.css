@@ -4,6 +4,12 @@ body
     background-color: #00979C
 }
 
+#logo
+{
+    border: 1px solid #FFFFFF;
+}
+
+
 h2
 {
     text-align: center;
