@@ -20,7 +20,17 @@
         <jsp:useBean id="portBean" scope="session" class="Handlers.BoardHandler" />
         <jsp:setProperty name="nameBean" property="name" />
         <jsp:setProperty name="portBean" property="port" />
+        
         <h1>Welcome to your Workspace!</h1>
+        
+        <table id="toolbar" class="toolbar">
+            <tr>
+                <td><img src="res/LED.png" width="200" height="150" alt="LED" title="LED"/></td>
+                <td><img src="res/Ultrasonic.png" width="200" height="150" alt="Ultrasonic Sensor" title="Ultrasonic Sensor"/></td>
+                <td><img src="res/Servo.png" width="200" height="150" alt="Servo" title="Standard Servo"/></td>
+                <td><img src="res/ConServo.png" width="200" height="150" alt="Continous Servo" title="Continuous Servo"/></td>
+            </tr>
+        </table>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>

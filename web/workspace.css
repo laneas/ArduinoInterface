@@ -9,6 +9,12 @@ body
     border: 1px solid #FFFFFF;
 }
 
+#toolbar
+{
+    background-color: #9c4e00;
+    border: 5px solid #9c0000;
+    cursor: move;
+}
 
 h2
 {
