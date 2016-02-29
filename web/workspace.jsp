@@ -42,13 +42,19 @@
                 ev.target.appendChild(copyimg);
             }
         </script>
+        
     </head>
-    
-        <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
         <jsp:useBean id="nameBean" scope="session" class="Handlers.BoardHandler" />
         <jsp:useBean id="portBean" scope="session" class="Handlers.BoardHandler" />
         <jsp:setProperty name="nameBean" property="name" />
         <jsp:setProperty name="portBean" property="port" />
+        <%
+            String name = nameBean.getName();
+            String port = portBean.getPort();
+            Board userBoard = new Board(name, port);
+        %>
+        
+        <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
         
         <h1>Welcome to your Workspace!</h1>
         
@@ -91,15 +97,11 @@
                          ondragstart="drag(event)"/></td>
             </tr>
         </table>
-        
-        <div id="workspace" ondrop="dropcopy(event)" ondragover="allowDrop(event)"></div>
+  
+        <div id="workspace" ondrop="dropcopy(event)" ondragover="allowDrop(event)">
+            <p> test </p>
+        </div>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>
-        <%
-            String name = nameBean.getName();
-            String port = portBean.getPort();
-            Board userBoard = new Board(name, port);
-        %>
-        
 </html>
