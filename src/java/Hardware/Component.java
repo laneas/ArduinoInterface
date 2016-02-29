@@ -11,9 +11,9 @@ package Hardware;
  */
 public abstract class Component
 {
-    private int pin;
-    private String name;
-    private boolean state;
+    protected int pin;
+    protected String name;
+    protected boolean state;
     
     public Component(int thePin)
     {

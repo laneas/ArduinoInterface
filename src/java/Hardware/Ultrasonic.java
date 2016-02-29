@@ -18,6 +18,12 @@ public class Ultrasonic extends Sensor implements Readable
     {
         super(thePin);
     }
+    
+    public Ultrasonic(int thePin, String theName)
+    {
+        super(thePin);
+        name = theName;
+    }
 
     @Override
     public void read()

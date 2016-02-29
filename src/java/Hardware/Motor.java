@@ -18,6 +18,12 @@ public class Motor extends Component implements Incrementable
     {
         super(thePin);
     }
+    
+    public Motor(int thePin, String theName)
+    {
+        super(thePin);
+        name = theName;
+    }
 
     @Override
     public void setUpperLimit(int upperLimit)

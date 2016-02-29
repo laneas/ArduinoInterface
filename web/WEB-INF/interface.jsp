@@ -24,7 +24,13 @@
                 color: #00979C;
                 border: 2px solid #000000;
                 background-color: #FFFFFF;
-            }           
+            }
+            
+            div
+            {
+                border: 2px solid #000000;
+                background-color: #9C4E00;
+            }
 
             #logo
             {
@@ -37,10 +43,32 @@
         
         <h2>Welcome to your Interface!</h2>
         
-        <p>Message: ${1}</p>
-        <p>Message: ${2}</p>
-        <p>Message: ${2}</p>
-        <p>Message: ${4}</p>
-        <p>Message: ${pageContext.request.contextPath}</p>
+        <div>${comp0}</div>
+        <div>${comp1}</div>
+        <div>${comp2}</div>
+        <div>${comp3}</div>
+        <div>${comp4}</div>
+        <div>${comp5}</div>
+        <div>${comp6}</div>
+        <div>${comp7}</div>
+        <div>${comp8}</div>
+        <div>${comp9}</div>
+        <div>${comp10}</div>
+        <div>${comp11}</div>
+        <div>${comp12}</div>
+        
+        <form name="Board Input Form" action="http://localhost:8080/ArduinoInterface/interface">
+            <fieldset>
+            <legend>Start Here:</legend>
+            <label>Board Name:</label>
+            <input type="text" name="name"/>
+            <br></br>
+            <label>Port:</label>
+            <input type="text" name="port"/>
+            <input type="submit" value="OK" />
+            </fieldset>
+        </form>
+        
+        <% System.out.println("page loaded"); %>
     </body>
 </html>

@@ -20,6 +20,13 @@ public class Servo extends Component implements Incrementable
         super(thePin);
         angle = 0;
     }
+    
+    public Servo(int thePin, String theName)
+    {
+        super(thePin);
+        angle = 0;
+        name = theName;
+    }
 
     @Override
     public void setUpperLimit(int theUpperLimit)

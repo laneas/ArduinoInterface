@@ -7,7 +7,6 @@ package Servlets;
 
 import Hardware.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class InterfaceServlet extends HttpServlet
 {
-
-    
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -34,14 +30,22 @@ public class InterfaceServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        String test = "test";
-        for(int i = 0; i < 4; i++)
+        Board userBoard = boardSim();
+        
+        for(int i = 0; i < userBoard.getComponents().size(); i++)
         {
-            String temp = Integer.toString(i);
-            request.setAttribute(temp, test);
+            String attribute = "comp"+Integer.toString(i);
+            request.setAttribute(attribute, "<h1>"+userBoard.getComponents().get(i).getName()+"</h1>");
         }
+        
         request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
-        //processRequest(request, response);
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
     }
 
     /**
@@ -52,7 +56,17 @@ public class InterfaceServlet extends HttpServlet
     @Override
     public String getServletInfo()
     {
-        return "Short description";
+        return "This Servlet creates an interface for the user";
     }// </editor-fold>
+    
+    public Board boardSim()
+    {
+        Board userBoard = new Board("Arduino", "COM3");
+          userBoard.addComponent(new LED(1, "Yellow LED"));
+          userBoard.addComponent(new ContinuousServo(2, "Right Wheel"));
+          userBoard.addComponent(new Ultrasonic(3, "Ultrasonic Sensor"));
+          
+          return userBoard;
+    }
 
 }

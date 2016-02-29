@@ -20,4 +20,13 @@ public class ContinuousServo extends Servo implements Incrementable
         defaultAngle = 90;
     }
     
+    public ContinuousServo(int thePin, String theName)
+    {
+        super(thePin);
+        upperLimit = 180;
+        lowerLimit = 0;
+        defaultAngle = 90;
+        name = theName;
+    }
+    
 }

@@ -21,6 +21,13 @@ public class LED extends Component
         ledColor = new Color(0, 0, 0);
     }
     
+    public LED(int thePin, String theName)
+    {
+        super(thePin);
+        ledColor = new Color(0, 0, 0);
+        name = theName;
+    }
+    
     public void fadeFor(int millisconds, int loops)
     {
         for(int i = 0; i < 5; i++)

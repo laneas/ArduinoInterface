@@ -19,6 +19,12 @@ public class Speaker extends Component
         super(thePin);
     }
     
+    public Speaker(int thePin, String theName)
+    {
+        super(thePin);
+        name = theName;
+    }
+    
     public void play()
     {
         //find default file and play it
