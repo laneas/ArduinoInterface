@@ -10,7 +10,27 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Interface</title>
-        <link href="WEB-INF//interface.css" type="text/css" rel="stylesheet" />
+        <link href="interface.css" type="text/css" rel="stylesheet" />
+        <style>
+            body 
+            {
+                font-family: Courier, monospace;
+                background-color: #00979C
+            }
+
+            h2
+            {
+                text-align: center;
+                color: #00979C;
+                border: 2px solid #000000;
+                background-color: #FFFFFF;
+            }           
+
+            #logo
+            {
+                border: 1px solid #FFFFFF;
+            }
+        </style>
     </head>
     <body>
         <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
@@ -21,5 +41,6 @@
         <p>Message: ${2}</p>
         <p>Message: ${2}</p>
         <p>Message: ${4}</p>
+        <p>Message: ${pageContext.request.contextPath}</p>
     </body>
 </html>
