@@ -56,8 +56,8 @@
         <%
             String name = nameBean.getName();
             String port = portBean.getPort();
-            Board userBoard = new Board(name, port);
-        %>
+            
+        %><%-- Board userBoard = new Board(name, port); --%>
         
         <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
         

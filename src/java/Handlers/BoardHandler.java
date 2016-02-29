@@ -17,7 +17,6 @@ public class BoardHandler
 {
     private String name;
     private String port;
-    public String tport;
     
     public BoardHandler()
     {
@@ -43,17 +42,5 @@ public class BoardHandler
     public void setPort(String port)
     {
         this.port = port;
-        tport = port;
-        
-        try
-        {
-            SerialComm comm = new SerialComm();
-            //(new SerialComm()).connect("COM3");
-            comm.connect(tport);
-        }
-        catch ( Exception e )
-        {
-            System.out.println(e);
-        }
     }
 }

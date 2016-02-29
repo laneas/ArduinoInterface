@@ -10,7 +10,7 @@ import java.io.OutputStream;
 public class SerialComm
 {
     InputStream in;
-    OutputStream out;
+    public OutputStream out;
     SerialReader sr;
     
     public SerialComm()

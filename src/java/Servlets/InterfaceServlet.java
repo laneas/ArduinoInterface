@@ -42,7 +42,20 @@ public class InterfaceServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        
         doPost(request, response);
+        Board userBoard = boardSim();
+        System.out.println(request.getParameter("LED"));
+        int ot = Integer.parseInt(request.getParameter("LED"));
+        ot = ot + 48;
+        try
+        {
+            userBoard.getComm().out.write(ot);
+        }
+        catch(IOException ioe)
+        {
+            
+        }
         //request.getRequestDispatcher("/WEB-INF/output.jsp").forward(request, response);
     }
 

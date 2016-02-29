@@ -5,6 +5,7 @@
  */
 package Hardware;
 
+import Communication.SerialComm;
 import java.util.ArrayList;
 
 /**
@@ -17,14 +18,24 @@ public class Board
     private String name;
     private String port;
     private ArrayList<Component> components;
+    private SerialComm comm;
     
     public Board(String name, String com)
     {
-        System.out.println("board created");
         setBoardType();
         setName(name);
         port = com;
         components = new ArrayList<Component>();
+        
+        try
+        {
+            comm = new SerialComm();
+            comm.connect(port);
+        }
+        catch ( Exception e )
+        {
+            System.out.println(e);
+        }
     }
     
     public void setBoardType()
@@ -110,5 +121,15 @@ public class Board
     {
         components.clear();
         name = "default";
+    }
+
+    public SerialComm getComm()
+    {
+        return comm;
+    }
+
+    public void setComm(SerialComm comm)
+    {
+        this.comm = comm;
     }
 }
