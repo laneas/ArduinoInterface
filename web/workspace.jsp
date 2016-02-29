@@ -43,7 +43,7 @@
             }
         </script>
     </head>
-    <body>
+    
         <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
         <jsp:useBean id="nameBean" scope="session" class="Handlers.BoardHandler" />
         <jsp:useBean id="portBean" scope="session" class="Handlers.BoardHandler" />
@@ -82,6 +82,13 @@
                          title="Continuous Servo"
                          draggable="true"
                          ondragstart="drag(event)"/></td>
+                <td><img src="res/Uno.png"
+                         id="uno"
+                         width="200" height="150" 
+                         alt="Continous Servo" 
+                         title="Arduino Uno"
+                         draggable="true"
+                         ondragstart="drag(event)"/></td>
             </tr>
         </table>
         
@@ -89,6 +96,10 @@
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>
-        <%-- <%!Board userBoard = new Board(nameBean, portBean); %> --%>
-    </body>
+        <%
+            String name = nameBean.getName();
+            String port = portBean.getPort();
+            Board userBoard = new Board(name, port);
+        %>
+        
 </html>

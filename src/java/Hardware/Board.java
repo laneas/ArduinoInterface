@@ -20,6 +20,7 @@ public class Board
     
     public Board(String name, String com)
     {
+        System.out.println("board created");
         setBoardType();
         setName(name);
         port = com;
