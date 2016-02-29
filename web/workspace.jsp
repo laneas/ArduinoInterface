@@ -41,6 +41,11 @@
                 copyimg.src = original.src;
                 ev.target.appendChild(copyimg);
             }
+            
+            function getWorkspaceInfo()
+            {
+                document.getElementById("echo").innerHTML = document.getElementById('workspace').innerHTML;
+            }
         </script>
         
     </head>
@@ -98,9 +103,15 @@
             </tr>
         </table>
   
-        <div id="workspace" ondrop="dropcopy(event)" ondragover="allowDrop(event)">
-            <p> test </p>
-        </div>
+        <div id="workspace" ondrop="dropcopy(event)" ondragover="allowDrop(event)"></div>
+        
+        <p id="echo"></p>
+        
+        <button onclick="getWorkspaceInfo()">Click</button>
+        
+        <form action="interface" method="post">
+            <input type="submit" name="button1" value="Button 1"/>
+        </form>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>
