@@ -107,10 +107,10 @@
         
         <p id="echo"></p>
         
-        <button onclick="getWorkspaceInfo()">Click</button>
+        <button onclick="getWorkspaceInfo()">Save</button>
         
         <form action="interface" method="post">
-            <input type="submit" name="button1" value="Button 1"/>
+            <input type="submit" name="button1" value="Create Interface"/>
         </form>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>

@@ -18,14 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class InterfaceServlet extends HttpServlet
 {
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -38,7 +30,7 @@ public class InterfaceServlet extends HttpServlet
             request.setAttribute(attribute, 
                     "<h3>"+userBoard.getComponents().get(i).getName()+"</h3>"+
                     "<form name=\"Control\" action=\"http://localhost:8080/ArduinoInterface/interface\"/>"+
-                    "<input type=\"text\" name=\"output\"/>"+
+                    "<input type=\"text\" name=\""+userBoard.getComponents().get(i).getName()+"\"/>"+
                     "<input type=\"submit\" value=\"Send\" />"+
                     "</form>");
         }
@@ -51,7 +43,7 @@ public class InterfaceServlet extends HttpServlet
             throws ServletException, IOException
     {
         doPost(request, response);
-        //request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
+        //request.getRequestDispatcher("/WEB-INF/output.jsp").forward(request, response);
     }
 
     /**

@@ -18,7 +18,7 @@ public class SerialComm
         super();
     }
     
-    void connect ( String portName ) throws Exception
+    public void connect ( String portName ) throws Exception
     {
         CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
         if ( portIdentifier.isCurrentlyOwned() )
