@@ -34,7 +34,7 @@ public class Board
         }
         catch ( Exception e )
         {
-            System.out.println(e);
+            System.out.println("Java Exception: "+e);
         }
     }
     

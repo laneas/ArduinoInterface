@@ -7,6 +7,10 @@ package Servlets;
 
 import Hardware.*;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,13 +52,23 @@ public class InterfaceServlet extends HttpServlet
         System.out.println(request.getParameter("LED"));
         int ot = Integer.parseInt(request.getParameter("LED"));
         ot = ot + 48;
+        
         try
         {
             userBoard.getComm().out.write(ot);
         }
         catch(IOException ioe)
         {
-            
+            System.out.println(ioe);
+        } 
+        catch(NullPointerException nope)
+        {
+            System.out.println("Java Exception: "+nope);
+            System.out.println(nope.getClass());
+            System.out.println(Arrays.toString(nope.getStackTrace()));
+        } catch (Exception ex)
+        {
+            Logger.getLogger(InterfaceServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //request.getRequestDispatcher("/WEB-INF/output.jsp").forward(request, response);
     }

@@ -9,9 +9,9 @@ import java.io.OutputStream;
 
 public class SerialComm
 {
-    InputStream in;
+    public InputStream in;
     public OutputStream out;
-    SerialReader sr;
+    public SerialReader sr;
     
     public SerialComm()
     {

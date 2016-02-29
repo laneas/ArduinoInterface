@@ -5,7 +5,7 @@ import java.io.OutputStream;
 
     public class SerialWriter implements Runnable 
     {
-        OutputStream out;
+        public OutputStream out;
         
         public SerialWriter ( OutputStream out )
         {
