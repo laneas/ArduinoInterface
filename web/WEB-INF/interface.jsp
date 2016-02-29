@@ -56,19 +56,5 @@
         <div>${comp10}</div>
         <div>${comp11}</div>
         <div>${comp12}</div>
-        
-        <form name="Board Input Form" action="http://localhost:8080/ArduinoInterface/interface">
-            <fieldset>
-            <legend>Start Here:</legend>
-            <label>Board Name:</label>
-            <input type="text" name="name"/>
-            <br></br>
-            <label>Port:</label>
-            <input type="text" name="port"/>
-            <input type="submit" value="OK" />
-            </fieldset>
-        </form>
-        
-        <% System.out.println("page loaded"); %>
     </body>
 </html>

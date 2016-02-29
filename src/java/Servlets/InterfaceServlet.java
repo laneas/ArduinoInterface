@@ -35,7 +35,12 @@ public class InterfaceServlet extends HttpServlet
         for(int i = 0; i < userBoard.getComponents().size(); i++)
         {
             String attribute = "comp"+Integer.toString(i);
-            request.setAttribute(attribute, "<h1>"+userBoard.getComponents().get(i).getName()+"</h1>");
+            request.setAttribute(attribute, 
+                    "<h3>"+userBoard.getComponents().get(i).getName()+"</h3>"+
+                    "<form name=\"Control\" action=\"http://localhost:8080/ArduinoInterface/interface\"/>"+
+                    "<input type=\"text\" name=\"output\"/>"+
+                    "<input type=\"submit\" value=\"Send\" />"+
+                    "</form>");
         }
         
         request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
@@ -45,7 +50,8 @@ public class InterfaceServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
+        doPost(request, response);
+        //request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
     }
 
     /**
@@ -62,8 +68,8 @@ public class InterfaceServlet extends HttpServlet
     public Board boardSim()
     {
         Board userBoard = new Board("Arduino", "COM3");
-          userBoard.addComponent(new LED(1, "Yellow LED"));
-          userBoard.addComponent(new ContinuousServo(2, "Right Wheel"));
+          userBoard.addComponent(new LED(1, "LED"));
+          userBoard.addComponent(new ContinuousServo(2, "Continuous Servo"));
           userBoard.addComponent(new Ultrasonic(3, "Ultrasonic Sensor"));
           
           return userBoard;
