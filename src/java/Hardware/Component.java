@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public abstract class Component
+public abstract class Component implements Serializable
 {
     protected int pin;
     protected String name;

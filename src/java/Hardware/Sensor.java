@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public abstract class Sensor extends Component
+public abstract class Sensor extends Component implements Serializable
 {
     protected double voltage;
     protected String feedback;

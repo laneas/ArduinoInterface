@@ -3,6 +3,8 @@
     Created on : Feb 29, 2016, 1:17:24 AM
     Author     : Ardjen
 --%>
+<%@page import="Hardware.CodeWriter"%>
+<%@page import="Hardware.Board"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

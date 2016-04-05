@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public class Ultrasonic extends Sensor implements Readable
+public class Ultrasonic extends Sensor implements Readable, Serializable
 {
     private double distance;
     private double microseconds;

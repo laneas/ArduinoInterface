@@ -6,36 +6,26 @@
 package Hardware;
 
 import Communication.SerialComm;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Ardjen
  */
-public class Board
+public class Board implements Serializable
 {
     private String boardType;
     private String name;
     private String port;
     private ArrayList<Component> components;
-    private SerialComm comm;
     
     public Board(String name, String com)
     {
         setBoardType();
-        setName(name);
+        setBoardName(name);
         port = com;
         components = new ArrayList<Component>();
-        
-        try
-        {
-            comm = new SerialComm();
-            comm.connect(port);
-        }
-        catch ( Exception e )
-        {
-            System.out.println("Java Exception: "+e);
-        }
     }
     
     public void setBoardType()
@@ -48,8 +38,8 @@ public class Board
     {
         return boardType;
     }
-    
-    public void setName(String theName)
+
+    public void setBoardName(String theName)
     {
         if(theName.isEmpty())
         {
@@ -61,7 +51,7 @@ public class Board
         }
     }
     
-    public String getName()
+    public String getBoardName()
     {
         return name;
     }
@@ -121,15 +111,5 @@ public class Board
     {
         components.clear();
         name = "default";
-    }
-
-    public SerialComm getComm()
-    {
-        return comm;
-    }
-
-    public void setComm(SerialComm comm)
-    {
-        this.comm = comm;
     }
 }

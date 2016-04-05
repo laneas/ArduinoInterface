@@ -7,9 +7,10 @@ import java.io.OutputStream;
     {
         public OutputStream out;
         
-        public SerialWriter ( OutputStream out )
+        public SerialWriter ( OutputStream outstream )
         {
-            this.out = out;
+            System.out.println("Serial Writer Created");
+            this.out = outstream;
         }
         
         public void run ()

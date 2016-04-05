@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public class Motor extends Component implements Incrementable
+public class Motor extends Component implements Incrementable, Serializable
 {
     private int defaultRotations, upperRotations, lowerRotations, rotations;
     private int direction;

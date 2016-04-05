@@ -6,12 +6,13 @@
 package Hardware;
 
 import java.awt.Color;
+import java.io.Serializable;
 
 /**
  *
  * @author Ardjen
  */
-public class LED extends Component
+public class LED extends Component implements Serializable
 {
     private Color ledColor;
     

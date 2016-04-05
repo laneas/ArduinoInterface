@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public class Speaker extends Component
+public class Speaker extends Component implements Serializable
 {
     private int volume;
     private String fileLocation;

@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public class Servo extends Component implements Incrementable
+public class Servo extends Component implements Incrementable, Serializable
 {
     protected double angle;
     protected double defaultAngle;

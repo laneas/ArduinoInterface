@@ -5,11 +5,13 @@
  */
 package Hardware;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ardjen
  */
-public class ContinuousServo extends Servo implements Incrementable
+public class ContinuousServo extends Servo implements Incrementable, Serializable
 {
     
     public ContinuousServo(int thePin)

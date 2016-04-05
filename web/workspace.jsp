@@ -4,6 +4,7 @@
     Author     : Ardjen
 --%>
 
+<%@page import="Communication.Connector"%>
 <%@page import="Handlers.BoardHandler"%>
 <%@page import="Hardware.Board"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -107,11 +108,22 @@
         
         <p id="echo"></p>
         
-        <button onclick="getWorkspaceInfo()">Save</button>
+        <button onclick="getWorkspaceInfo()">Echo</button>
+        
+        <form action="workspace" method="post">
+            <input type="submit" name="save" value="Save"/>
+        </form>
         
         <form action="interface" method="post">
             <input type="submit" name="button1" value="Create Interface"/>
         </form>
+        
+        <%
+            Thread c = new Connector(port);
+            c.setDaemon(true);
+            c.setName("connection");
+            c.start();
+        %>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>

@@ -5,10 +5,6 @@
  */
 package Handlers;
 
-import Communication.SerialComm;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Ardjen

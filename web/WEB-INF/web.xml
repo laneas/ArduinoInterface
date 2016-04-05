@@ -4,16 +4,29 @@
         <servlet-name>interface</servlet-name>
         <servlet-class>Servlets.InterfaceServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>output</servlet-name>
         <servlet-class>Servlets.OutputServlet</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>interface</servlet-name>
         <url-pattern>/interface</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>output</servlet-name>
         <url-pattern>/output</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>workspace</servlet-name>
+        <servlet-class>Servlets.WorkspaceServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>workspace</servlet-name>
+        <url-pattern>/workspace</url-pattern>
     </servlet-mapping>
 </web-app>

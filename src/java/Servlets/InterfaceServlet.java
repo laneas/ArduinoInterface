@@ -7,10 +7,6 @@ package Servlets;
 
 import Hardware.*;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ardjen
  */
 public class InterfaceServlet extends HttpServlet
-{
+{    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         Board userBoard = boardSim();
-        
+        String temp = request.getParameter("LED");
+        System.out.println("Request info: "+temp);
+    
         for(int i = 0; i < userBoard.getComponents().size(); i++)
         {
             String attribute = "comp"+Integer.toString(i);
@@ -38,38 +35,19 @@ public class InterfaceServlet extends HttpServlet
                     "<input type=\"submit\" value=\"Send\" />"+
                     "</form>");
         }
-        
         request.getRequestDispatcher("/WEB-INF/interface.jsp").forward(request, response);
     }
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        
         doPost(request, response);
-        Board userBoard = boardSim();
-        System.out.println(request.getParameter("LED"));
+        System.out.println("User Input from Interface: "+request.getParameter("LED"));
         int ot = Integer.parseInt(request.getParameter("LED"));
         ot = ot + 48;
         
-        try
-        {
-            userBoard.getComm().out.write(ot);
-        }
-        catch(IOException ioe)
-        {
-            System.out.println(ioe);
-        } 
-        catch(NullPointerException nope)
-        {
-            System.out.println("Java Exception: "+nope);
-            System.out.println(nope.getClass());
-            System.out.println(Arrays.toString(nope.getStackTrace()));
-        } catch (Exception ex)
-        {
-            Logger.getLogger(InterfaceServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Board userBoard = boardSim();
+        
         //request.getRequestDispatcher("/WEB-INF/output.jsp").forward(request, response);
     }
 
@@ -88,8 +66,9 @@ public class InterfaceServlet extends HttpServlet
     {
         Board userBoard = new Board("Arduino", "COM3");
           userBoard.addComponent(new LED(1, "LED"));
-          userBoard.addComponent(new ContinuousServo(2, "Continuous Servo"));
-          userBoard.addComponent(new Ultrasonic(3, "Ultrasonic Sensor"));
+          userBoard.addComponent(new LED(2, "LED2"));
+          userBoard.addComponent(new ContinuousServo(3, "Continuous Servo"));
+          userBoard.addComponent(new Ultrasonic(4, "Ultrasonic Sensor"));
           
           return userBoard;
     }
