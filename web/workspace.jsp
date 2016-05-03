@@ -58,7 +58,9 @@
             String name = nameBean.getName();
             String port = portBean.getPort();
             
-        %><%-- Board userBoard = new Board(name, port); --%>
+        %>
+        
+        <%-- Board userBoard = new Board(name, port); --%>
         
         <img id="logo" src="res//Logo.png" alt="logo" width="75" height="100"/>
         
@@ -121,13 +123,6 @@
         <form action="workspace" method="get">
             <input type="text" name="load" value="Enter File Path to Load"/>
         </form>
-        
-        <%
-            Thread c = new Connector(port);
-            c.setDaemon(true);
-            c.setName("connection");
-            c.start();
-        %>
         
         <h2>Board: <jsp:getProperty name="nameBean" property="name" /> </h2>
         <h2>Port: <jsp:getProperty name="portBean" property="port" /> </h2>

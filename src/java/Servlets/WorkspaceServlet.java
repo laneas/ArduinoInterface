@@ -5,7 +5,6 @@
  */
 package Servlets;
 
-import Communication.BoardDeserializer;
 import Communication.BoardSerializer;
 import Hardware.Board;
 import Hardware.ContinuousServo;
@@ -27,20 +26,6 @@ public class WorkspaceServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {   
-        String filePath = request.getParameter("load");
-        BoardDeserializer deserializer = new BoardDeserializer(filePath);
-        deserializer.start();
-        Board temp = boardSim();//deserializer.getBoard();
-        
-        //------for testing---------
-        //System.out.println(temp.getBoardName()+" contents:");
-        
-        for(int i = 0; i < temp.getComponents().size(); i++)
-        {
-            System.out.println(temp.getComponents().get(i).getName());
-        }
-        //-------------------------
-        
         request.getRequestDispatcher("/workspace.jsp").forward(request, response);
     }
 
