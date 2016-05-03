@@ -5,7 +5,6 @@
  */
 package Hardware;
 
-import Communication.SerialComm;
 import java.io.Serializable;
 import java.util.ArrayList;
 

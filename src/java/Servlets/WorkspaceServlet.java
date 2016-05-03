@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Communication.BoardDeserializer;
 import Communication.BoardSerializer;
 import Hardware.Board;
 import Hardware.ContinuousServo;
@@ -25,9 +26,22 @@ public class WorkspaceServlet extends HttpServlet
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        doPost(request, response);
-        System.out.println("doGet called in WorkspaceServlet");
+    {   
+        String filePath = request.getParameter("load");
+        BoardDeserializer deserializer = new BoardDeserializer(filePath);
+        deserializer.start();
+        Board temp = boardSim();//deserializer.getBoard();
+        
+        //------for testing---------
+        //System.out.println(temp.getBoardName()+" contents:");
+        
+        for(int i = 0; i < temp.getComponents().size(); i++)
+        {
+            System.out.println(temp.getComponents().get(i).getName());
+        }
+        //-------------------------
+        
+        request.getRequestDispatcher("/workspace.jsp").forward(request, response);
     }
 
     @Override
@@ -54,11 +68,11 @@ public class WorkspaceServlet extends HttpServlet
     
     public Board boardSim()
     {
-        Board userBoard = new Board("Arduino", "COM3");
+        Board userBoard = new Board("MyBoard", "COM3");
           userBoard.addComponent(new LED(1, "LED"));
           userBoard.addComponent(new LED(2, "LED2"));
-          userBoard.addComponent(new ContinuousServo(3, "Continuous Servo"));
-          userBoard.addComponent(new Ultrasonic(4, "Ultrasonic Sensor"));
+          userBoard.addComponent(new ContinuousServo(3, "LED3"));
+          userBoard.addComponent(new Ultrasonic(4, "LED3"));
           
           return userBoard;
     }

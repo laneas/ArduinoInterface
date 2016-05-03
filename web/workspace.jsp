@@ -108,14 +108,18 @@
         
         <p id="echo"></p>
         
-        <button onclick="getWorkspaceInfo()">Echo</button>
+         <button onclick="getWorkspaceInfo()">Echo</button>
+        
+        <form action="interface" method="post">
+            <input type="submit" name="button1" value="Create Interface"/>
+        </form>
         
         <form action="workspace" method="post">
             <input type="submit" name="save" value="Save"/>
         </form>
         
-        <form action="interface" method="post">
-            <input type="submit" name="button1" value="Create Interface"/>
+        <form action="workspace" method="get">
+            <input type="text" name="load" value="Enter File Path to Load"/>
         </form>
         
         <%
